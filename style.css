@@ -34,26 +34,31 @@ body {
 
 h1 {
   font-size: 1.55em;
+  text-shadow: 0px 2px 0px #fff;
 }
 h2 {
   font-size: 1.4em;
+  text-shadow: 0px 2px 0px #fff;
 }
 h3 {
   font-size: 1.17em;
+  text-shadow: 0px 2px 0px #fff;
 }
 h4 {
   font-size: 1.12em;
+  text-shadow: 0px 1px 0px #fff;
 }
 h5 {
   font-size: 1em;
+  text-shadow: 0px 1px 0px #fff;
 }
 h6 {
   font-size: 0.9em;
+  text-shadow: 0px 1px 0px #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Catamaran";
-  text-shadow: 0px 2px 0px #fff;
 }
 
 /*Links*/
