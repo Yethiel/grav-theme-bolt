@@ -1,3 +1,6 @@
+/* This is the common style for all layouts. This also works if the browser
+   doesn't support grid yet. */
+
 /*Encode Sans for the page content*/
 @import url('https://fonts.googleapis.com/css?family=Encode+Sans');
 
@@ -29,7 +32,7 @@
 
 body {
   background-color: #000;
-  background: url("images/background.png") fixed center;
+  background: url("../images/background.png") fixed center;
 }
 
 h1 {
@@ -88,7 +91,6 @@ a:hover {
 
 .bg-gradient-dark {
   background: #4c4c4c; /* Old browsers */
-  background-image: url("images/noise.png");
   background: -moz-linear-gradient(top, #4c4c4c 0%, #2b2b2b 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #4c4c4c 0%,#2b2b2b 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #4c4c4c 0%,#2b2b2b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -97,7 +99,7 @@ a:hover {
 
 .bg-pattern-bright {
   background-color: var(--main-bg-color);
-  background: url("images/holepattern-bright.png");
+  background: url("../images/holepattern-bright.png");
   -webkit-box-shadow: 0px 4px 16px -1px rgba(0,0,0,0.1);
   -moz-box-shadow: 0px 4px 16px -1px rgba(0,0,0,0.1);
   box-shadow: 0px 4px 16px -1px rgba(0,0,0,0.1);
@@ -106,7 +108,7 @@ a:hover {
 
 .bg-pattern-dark {
   background-color: var(--dark-bg-color);
-  background: url("images/holepattern.png");
+  background: url("../images/holepattern.png");
   -webkit-box-shadow: inset 0px 4px 16px -1px rgba(0,0,0,0.76);
   -moz-box-shadow: inset 0px 4px 16px -1px rgba(0,0,0,0.76);
   box-shadow: inset 0px 4px 16px -1px rgba(0,0,0,0.76);
@@ -181,54 +183,4 @@ a:hover {
 
 .main-footer p {
   color: var(--link-darkbg);
-}
-
-/* Uses grid layout if supported */
-@supports (display: grid) {
-  .main-head {
-    grid-area: header;
-    /*display: grid;*/
-  }
-  .content {
-    grid-area: content;
-    padding: 1em 1em;
-  }
-  .main-nav {
-    grid-area: nav;
-  }
-  .side {
-    grid-area: sidebar;
-  }
-  .main-footer {
-    grid-area: footer;
-  }
-
-  /* Mobile/default layout */
-  .wrapper {
-    display: grid;
-    /*grid-gap: 20px;*/
-    grid-template-areas:
-      "header"
-      "nav"
-      "content"
-      "sidebar"
-      "footer";
-  }
-  /* Uses a two-column layout from 600px on */
-  @media (min-width: 600px) {
-    .wrapper {
-      grid-template-columns: 3fr 1fr;
-      grid-template-areas:
-        "header  header"
-        "nav     nav"
-        "content sidebar"
-        "footer  footer";
-    }
-    /* Displays the nav bar horizontally */
-    .main-nav ul {
-      display: flex;
-      justify-content: center;
-      margin: 0;
-    }
-  }
 }
