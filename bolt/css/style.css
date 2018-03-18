@@ -10,18 +10,8 @@
 /*Racing Sans One for the title*/
 @import url('https://fonts.googleapis.com/css?family=Racing+Sans+One');
 
-:root {
-  --font-color: rgb(50, 50, 50);
-  /*Colors for background, main-bg-color is used for website content*/
-  --main-bg-color: #EEEEEF;
-  --dark-bg-color: #312F2F;
-  /*Colors for the links on dark backgrounds, red by default*/
-  --link-darkbg: #FFC200;
-  --link-darkbg-h: #ffdf67;
-  /*Colors for the links on bright backgrounds, yellow by default*/
-  --link-lightbg: #C85426;
-  --link-lightbg-h: #B67776;
-}
+/* Global variables for colors and sizes */
+@import url("variables.css");
 
 * {
   margin: 0;
@@ -62,7 +52,7 @@ h6 {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Catamaran";
-  font-color: var(--font-color);
+  color: var(--font-color);
 }
 
 /*Links*/
@@ -156,6 +146,10 @@ a:hover {
   padding-left: 0.5em;
   margin-bottom: 1em;
 }
+.content img {
+  max-width: 100%;
+}
+
 ul, ol {
   margin-bottom: 1em;
 }
@@ -178,43 +172,106 @@ pre code {
   color: white;
 }
 
+/* Menu */
 .main-nav {
   font-family: "Catamaran";
-  overflow-x: auto;
-}
-.main-nav ul {
-  list-style: none;
-  margin: 0.5em auto;
-}
-.main-nav li {
-  display: flex;
-  justify-content: center;
-  padding: 0em 0.1em;
-  margin: 0;
-}
-.main-nav li a {
-  padding: 0.5em 1.5em;
-  color: var(--link-darkbg);
-  text-decoration: none;
-  transition: background-color 100ms ease-out;
 }
 .main-nav a:hover {
   background-color: rgba(255, 245, 0, 0.26);
   transition: background-color 50ms ease-in;
   text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
 }
-
 .main-nav .active {
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
 }
-
-.dropdown-list a{
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
+.main-nav li a {
+  color: var(--link-darkbg);
+  text-decoration: none;
+  transition: background-color 100ms ease-out;
 }
-.main-nav a:hover .dropdown-list a{
-  display: block;
+
+/* Mobile menu with sub-pages */
+/*@media (max-width: 600px) {
+  .main-nav ul {
+    list-style: none;
+    margin: 0.5em auto;
+  }
+  .main-nav li {
+    display: block;
+    padding: 0.2em 0.1em;
+  }
+  .main-nav li a {
+    margin: 0.5em 1.5em;
+    padding: 0.5em 1.5em;
+  }
+}*/
+
+/* Mobile menu without sub-pages */
+@media (max-width: 800px) {
+  .main-nav {
+    overflow-x: auto;
+  }
+  .main-nav ul {
+    list-style: none;
+    margin: 0.5em auto;
+  }
+  .main-nav ul ul {
+    display: none;
+  }
+  .main-nav li {
+    display: flex;
+    justify-content: center;
+    padding: 0em 0.1em;
+    margin: 0;
+  }
+  .main-nav li a {
+    padding: 0.5em 1.5em;
+  }
+}
+
+/* Desktop menu */
+@media (min-width: 800px) {
+  .main-nav {
+    height: 36px;
+  }
+  .main-nav ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    list-style: none;
+    position: relative;
+  }
+  .main-nav ul li {
+    display: inline-block;
+    padding: 0em 0.1em;
+    margin: 0;
+  }
+  .main-nav li a {
+    padding: 0.5em 1.5em;
+    display: block;
+  }
+  .main-nav ul ul {
+    display: none;
+    position: absolute;
+    border: 2px solid var(--dark-bg-color);
+    border-radius: 0 0 4px 4px;
+    background-color: var(--dark-bg-color);
+    background: url("../images/holepattern.png");
+    -webkit-box-shadow: 0px 4px 16px -1px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 4px 16px -1px rgba(0,0,0,0.5);
+    box-shadow: 0px 4px 16px -1px rgba(0,0,0,0.5);
+  }
+  .main-nav ul li:hover > ul {
+    display: inherit;
+    top: 36px;
+  }
+  .main-nav ul ul li {
+    width: 170px;
+    z-index: 1000;
+    float: none;
+    display: list-item;
+    position: relative;
+  }
 }
 
 .side {

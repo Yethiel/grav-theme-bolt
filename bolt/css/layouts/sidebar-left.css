@@ -29,7 +29,7 @@
       "footer";
   }
   /* Uses a two-column layout from 600px on */
-  @media (min-width: 600px) {
+  @media (min-width: 800px) {
     .wrapper {
       grid-template-columns: 1fr 3fr;
       grid-template-areas:
@@ -37,12 +37,6 @@
         "nav     nav"
         "sidebar content"
         "footer  footer";
-    }
-    /* Displays the nav bar horizontally */
-    .main-nav ul {
-      display: flex;
-      justify-content: center;
-      margin: 0;
     }
   }
 }

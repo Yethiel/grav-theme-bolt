@@ -1,0 +1,12 @@
+:root {
+  --font-color: rgb(50, 50, 50);
+  /*Colors for background, main-bg-color is used for website content*/
+  --main-bg-color: #EEEEEF;
+  --dark-bg-color: #312F2F;
+  /*Colors for the links on dark backgrounds, red by default*/
+  --link-darkbg: #FFC200;
+  --link-darkbg-h: #ffdf67;
+  /*Colors for the links on bright backgrounds, yellow by default*/
+  --link-lightbg: #C85426;
+  --link-lightbg-h: #B67776;
+}

@@ -1,0 +1,38 @@
+<header class="main-head bg-gradient-dark">
+  <a href="/">
+    <img src="{{ url('theme://images/favicon.png') }}" class="site-logo"><span class="site-title"> {{site.title}} </span>
+  </a>
+</header>
+
+<nav class="main-nav bg-pattern-dark">
+  <ul>
+    {% for ppage in pages.children.visible %}
+
+      {% set current_page = (ppage.active or ppage.activeChild)
+        ? 'is-active'
+        : '' %}
+
+      <div class="{% if ppage.children|length > 0 %}dropdown{% endif %}">
+        <li class="{{ current_page }}">
+        
+          <a class="{% if current_page == 'is-active' %}active{% endif%}" href="{{ ppage.url }}">
+            {{ ppage.menu }}
+          </a>
+
+        </li>
+      </div>
+      
+      {% if ppage.children|length > 0 %}
+        <ul class="dropdown-list">
+          {% for cpage in ppage.children %}
+            <a href="{{ cpage.url }}">
+              {{ cpage.menu }}
+            </a>
+          {% endfor %}
+        </ul>      
+      {% endif %}
+
+
+    {% endfor %}
+  </ul>
+</nav>

@@ -4,34 +4,34 @@
   </a>
 </header>
 
-<nav class="main-nav bg-pattern-dark">
-  <ul>
-    {% for ppage in pages.children.visible %}
+  <nav class="main-nav bg-pattern-dark">
+    <ul>
+      {% for ppage in pages.children.visible %}
 
-      {% set current_page = (ppage.active or ppage.activeChild)
-        ? 'is-active'
-        : '' %}
+        {% set current_page = (ppage.active or ppage.activeChild)
+          ? 'is-active'
+          : '' %}
 
-      <div class="{% if ppage.children|length > 0 %}dropdown{% endif %}">
-        <li class="{{ current_page }}">
-        
-          <a class="{% if current_page == 'is-active' %}active{% endif%}" href="{{ ppage.url }}">
-            {{ ppage.menu }}
-          </a>
-
-        </li>
-      </div>
-      {% if ppage.children|length > 0 %}
-        <ul class="dropdown-list">
-          {% for cpage in ppage.children %}
-            <a href="{{ cpage.url }}">
-              {{ cpage.menu }}
+          <li class="{{ current_page }}">
+          
+            <a class="{% if current_page == 'is-active' %}active{% endif%}" href="{{ ppage.url }}">
+              {{ ppage.menu }}
             </a>
-          {% endfor %}
-        </ul>      
-      {% endif %}
+            {% if ppage.children|length > 0 %}
+              <ul>
+                {% for cpage in ppage.children %}
+                  <li>
+                    <a href="{{ cpage.url }}">
+                      {{ cpage.menu }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>      
+            {% endif %}
+
+          </li>
 
 
-    {% endfor %}
-  </ul>
-</nav>
+      {% endfor %}
+    </ul>
+  </nav>

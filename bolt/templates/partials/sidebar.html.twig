@@ -5,7 +5,14 @@
 			<li><a href="{{parent.url}}">{{parent.menu}}</a>
 				<ul>
 					{% for p in parent.children %}
-						<li><a href="{{p.url}}">{{ p.title }}</a></li>
+						<li><a href="{{p.url}}">{{ p.title }}</a>
+							<ul>
+								{% for p1 in p.children %}
+									<li><a href="{{p1.url}}">{{ p1.title }}</a></li>
+								{% endfor %}
+							</ul>
+						</li>
+
 					{% endfor %}
 				</ul>
 			</li>
