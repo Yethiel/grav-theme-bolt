@@ -1,0 +1,13 @@
+name: Bolt
+version: 0.0.1
+description: A Theme made for the re-volt.io website.
+icon: bolt
+author:
+  name: Yethiel
+  email: yethiel@mailbox.org
+homepage: https://re-volt.io
+demo: https://re-volt.io
+keywords: bolt
+bugs: 
+readme: 
+license: MIT

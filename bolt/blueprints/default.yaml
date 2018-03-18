@@ -1,0 +1,69 @@
+extends@: default
+child_type: item
+
+rules:
+  slug:
+    pattern: "[a-z][a-z0-9_\-]+"
+    min: 2
+    max: 80
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        layout:
+          type: tab
+          title: Layout Settings
+
+          fields:
+
+            content_title:
+              type: spacer
+              title: Layout Settings
+
+            header.sidebarlayout:
+              type: select
+              label: Sidebar Layout
+              default: default
+              options:
+                default: 'Sidebar Bottom'
+                default-showcase: 'Sidebar with Showcase'
+                sidebar-left: 'Sidebar Left'
+                sidebar-right: 'Sidebar Right'
+            header.sidebarpath:
+              type: string
+              label: Sidebar Content
+              default: "/sidebar"
+            
+            header.showcase:
+              type: toggle
+              default: false
+              label: Showcase
+              highlight: 1
+              default: 1
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+
+            header.hidetoc:
+              type: toggle
+              default: false
+              label: Hide Table of Contents
+              highlight: 1
+              default: 1
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+
+
+          import@:
+            type: partials/blog-bits
+            context: blueprints://pages
+

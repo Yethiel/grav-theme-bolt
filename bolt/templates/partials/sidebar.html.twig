@@ -1,0 +1,19 @@
+<aside class="side bg-pattern-bright">
+	{% if not page.header.hidetoc %}
+		{% set parent = page.find('/'~page.url|split("/")[1]) %}
+		<ul>
+			<li><a href="{{parent.url}}">{{parent.menu}}</a>
+				<ul>
+					{% for p in parent.children %}
+						<li><a href="{{p.url}}">{{ p.title }}</a></li>
+					{% endfor %}
+				</ul>
+			</li>
+		</ul>
+	{% endif %}
+	{% if page.header.sidebarpath %}
+		{{ page.find(page.header.sidebarpath).content }}
+	{% else %}
+		{{ page.find("/sidebar").content }}
+	{% endif %}
+</aside>

@@ -11,7 +11,7 @@
 @import url('https://fonts.googleapis.com/css?family=Racing+Sans+One');
 
 :root {
-  --font-color: rgb(11, 11, 11);
+  --font-color: rgb(50, 50, 50);
   /*Colors for background, main-bg-color is used for website content*/
   --main-bg-color: #EEEEEF;
   --dark-bg-color: #312F2F;
@@ -27,12 +27,12 @@
   margin: 0;
   padding: 0;
   font-family: "Encode Sans", Arial, Helvetica, sans-serif;
-  color: var(--font-color);
 }
 
 body {
-  background: url("../images/background.png") fixed center no-repeat;
+  background: url("../images/background.jpg") fixed center no-repeat;
   background-color: black;
+  background-size: cover;
 }
 
 h1 {
@@ -40,28 +40,29 @@ h1 {
   text-shadow: 0px 2px 0px #fff;
 }
 h2 {
-  font-size: 1.4em;
+  font-size: 1.5em;
   text-shadow: 0px 2px 0px #fff;
 }
 h3 {
-  font-size: 1.17em;
+  font-size: 1.3em;
   text-shadow: 0px 2px 0px #fff;
 }
 h4 {
-  font-size: 1.12em;
+  font-size: 1.2em;
   text-shadow: 0px 1px 0px #fff;
 }
 h5 {
-  font-size: 1.05em;
+  font-size: 1.15em;
   text-shadow: 0px 1px 0px #fff;
 }
 h6 {
-  font-size: 1em;
+  font-size: 1.1em;
   text-shadow: 0px 1px 0px #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Catamaran";
+  font-color: var(--font-color);
 }
 
 /*Links*/
@@ -138,13 +139,43 @@ a:hover {
   text-shadow: 0px 2px #816204;
 }
 
+.showcase {
+  height: 220px;
+  width: 100%;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+}
+
 .content {
-  padding: 1em 1em;
+  padding: 2.5em 2.5em;
   min-height: 400px;
 }
 .content p {
+  color: var(--font-color);
   padding-left: 0.5em;
   margin-bottom: 1em;
+}
+ul, ol {
+  margin-bottom: 1em;
+}
+li {
+  margin-left: 2em;
+  margin-bottom: 0.4em;
+}
+
+th {
+  border: 1px var(--dark-bg-color);
+}
+
+pre {
+  background-color: var(--dark-bg-color);
+  padding: 1em;
+  margin-bottom: 1em;
+}
+pre code {
+  font-family: "Lucida Console", Monaco, monospace;
+  color: white;
 }
 
 .main-nav {
@@ -159,6 +190,7 @@ a:hover {
   display: flex;
   justify-content: center;
   padding: 0em 0.1em;
+  margin: 0;
 }
 .main-nav li a {
   padding: 0.5em 1.5em;
@@ -170,6 +202,19 @@ a:hover {
   background-color: rgba(255, 245, 0, 0.26);
   transition: background-color 50ms ease-in;
   text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+}
+
+.main-nav .active {
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
+}
+
+.dropdown-list a{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+}
+.main-nav a:hover .dropdown-list a{
+  display: block;
 }
 
 .side {

@@ -1,0 +1,17 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {% if page.header.showcase %}
+        {% set background_image = page.media.images|randomize|first %}
+        <div class="showcase" {% if background_image %}style="background-image: url({{ background_image.url }});"{% endif %}>
+        </div>
+    {% endif %}
+    <div class="content bg-bright">
+      {% include 'partials/tntsearch.html.twig' with { in_page: true }%}
+      {{ page.content }}
+    </div>
+{% endblock %}
+
+
+
+
