@@ -1,0 +1,32 @@
+extends@: default
+child_type: item
+
+rules:
+  slug:
+    pattern: "[a-z][a-z0-9_\-]+"
+    min: 2
+    max: 80
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        layout:
+          type: tab
+          title: Layout Settings
+
+          fields:
+
+            content_title:
+              type: spacer
+              title: Layout Settings
+
+            header.colwidth:
+              type: text
+              label: Column Width
+              default: 300
+              help: Enter the width for each column in pixels.
+

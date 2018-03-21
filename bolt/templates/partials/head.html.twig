@@ -9,7 +9,7 @@
 
 <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}"/>
 <link rel="canonical" href="{{ page.url(true, true) }}"/>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     {% block stylesheets %}
         {% do assets.addCss('theme://css/style.css') %}
@@ -18,8 +18,17 @@
           {% if page.header.sidebarlayout == 'default' %}
             {% do assets.addCss('theme://css/layouts/default.css') %}
           {% endif %}
+          {% if page.header.sidebarlayout == 'sidebar-top' %}
+            {% do assets.addCss('theme://css/layouts/sidebar-top.css') %}
+          {% endif %}
           {% if page.header.sidebarlayout == 'default-showcase' %}
             {% do assets.addCss('theme://css/layouts/default_showcase.css') %}
+          {% endif %}
+          {% if page.header.sidebarlayout == 'sidebar-left-showcase' %}
+            {% do assets.addCss('theme://css/layouts/sidebar-left-showcase.css') %}
+          {% endif %}
+          {% if page.header.sidebarlayout == 'sidebar-right-showcase' %}
+            {% do assets.addCss('theme://css/layouts/sidebar-right-showcase.css') %}
           {% endif %}
           {% if page.header.sidebarlayout == 'sidebar-left' %}
             {% do assets.addCss('theme://css/layouts/sidebar-left.css') %}

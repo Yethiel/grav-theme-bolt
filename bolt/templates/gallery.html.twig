@@ -1,0 +1,16 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {% if page.header.showcase %}
+        {% set background_image = page.media.images|randomize|first %}
+        <div class="showcase" {% if background_image %}style="background-image: url({{ background_image.url }});"{% endif %}>
+        </div>
+    {% endif %}
+    <div class="content bg-bright">
+      <div class="gallery">
+        {% for column in page.content|split('<hr />') %}
+                {{ column }}
+          {% endfor %}
+      </div>
+    </div>
+{% endblock %}

@@ -7,6 +7,9 @@
     grid-area: header;
     /*display: grid;*/
   }
+  .showcase {
+    grid-area: showcase;
+  }
   .content {
     grid-area: content;
   }
@@ -23,9 +26,11 @@
   /* Mobile/default layout */
   .wrapper {
     display: grid;
+    /*grid-gap: 20px;*/
     grid-template-areas:
       "header"
       "nav"
+      "showcase"
       "sidebar"
       "content"
       "footer";
@@ -37,6 +42,8 @@
       grid-template-areas:
         "header  header"
         "nav     nav"
+        "showcase showcase"
+        "content sidebar"
         "content sidebar"
         "footer  footer";
     }

@@ -1,0 +1,18 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {% if page.header.showcase %}
+        {% set background_image = page.media.images|randomize|first %}
+        <div class="showcase" {% if background_image %}style="background-image: url({{ background_image.url }});"{% endif %}>
+        </div>
+    {% endif %}
+    <div class="content content-columns">
+      <div class="columns">
+        {% for column in page.content|split('<hr />') %}
+            <div class="column" {% if page.header.colwidth %}style="width: {{page.header.colwidth}}px !important;"{% endif %}>
+                {{ column }}
+            </div>
+          {% endfor %}
+      </div>
+    </div>
+{% endblock %}

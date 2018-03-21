@@ -21,7 +21,7 @@
               <ul>
                 {% for cpage in ppage.children %}
                   <li>
-                    <a href="{{ cpage.url }}">
+                    <a class="{% if cpage.active %}active{% endif%}" href="{{ cpage.url }}">
                       {{ cpage.menu }}
                     </a>
                   </li>

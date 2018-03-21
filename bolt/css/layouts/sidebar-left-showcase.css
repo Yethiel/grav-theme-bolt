@@ -1,3 +1,6 @@
+/* Global variables for colors and sizes */
+@import url("../variables.css");
+
 /* Uses grid layout if supported */
 @supports (display: grid) {
   .main-head {
@@ -35,13 +38,13 @@
   /* Uses a two-column layout from 600px on */
   @media (min-width: 800px) {
     .wrapper {
-      grid-template-columns: 3fr 1fr;
+      grid-template-columns: var(--sidebar-frac) var(--content-frac);
       grid-template-areas:
         "header  header"
         "nav     nav"
         "showcase showcase"
-        "content sidebar"
-        "content sidebar"
+        "sidebar content"
+        "sidebar content"
         "footer  footer";
     }
   }

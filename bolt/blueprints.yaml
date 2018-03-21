@@ -1,5 +1,5 @@
 name: Bolt
-version: 0.0.1
+version: 0.0.2
 description: A Theme made for the re-volt.io website.
 icon: bolt
 author:
@@ -8,6 +8,6 @@ author:
 homepage: https://re-volt.io
 demo: https://re-volt.io
 keywords: bolt
-bugs: 
-readme: 
+bugs: https://github.com/Yethiel/grav-theme-bolt/issues
+readme: https://github.com/Yethiel/grav-theme-bolt#bolt-grav-theme
 license: MIT

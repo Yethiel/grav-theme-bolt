@@ -1,16 +1,36 @@
 <aside class="side bg-pattern-bright">
 	{% if not page.header.hidetoc %}
 		{% set parent = page.find('/'~page.url|split("/")[1]) %}
-		<ul>
-			<li><a href="{{parent.url}}">{{parent.menu}}</a>
-				<ul>
+		<ul {% if header.horizontaltoc %}class="horizontal-list"{% endif %}>
+			<li><a class="{% if parent.active %}active{% endif %}" href="{{parent.url}}">{{parent.menu}}</a>
+				<ul {% if header.horizontaltoc %}class="horizontal-list"{% endif %}>
 					{% for p in parent.children %}
-						<li><a href="{{p.url}}">{{ p.title }}</a>
-							<ul>
+						<li><a class="{% if p.active %}active{% endif %}" href="{{p.url}}">{{ p.title }}</a>
+							{% if p.children|length > 0 %}
+							<ul {% if header.horizontaltoc %}class="horizontal-list"{% endif %}>
 								{% for p1 in p.children %}
-									<li><a href="{{p1.url}}">{{ p1.title }}</a></li>
+									<li><a class="{% if p1.active %}active{% endif %}" href="{{p1.url}}">{{ p1.title }}</a>
+
+										{% if p1.children|length > 0 and p.activeChild %}
+											<ul {% if header.horizontaltoc %}class="horizontal-list"{% endif %}>
+												{% for p2 in p1.children %}
+													<li><a class="{% if p2.active %}active{% endif %}" href="{{p2.url}}">{{ p2.title }}</a>
+
+													{% if p2.children|length > 0 %}
+														<ul {% if header.horizontaltoc %}class="horizontal-list"{% endif %}>
+															{% for p3 in p2.children %}
+																<li><a class="{% if p3.active %}active{% endif %}" href="{{p3.url}}">{{ p3.title }}</a></li>
+															{% endfor %}
+														</ul>
+													{% endif %}
+													</li>
+												{% endfor %}
+											</ul>
+										{% endif %}
+									</li>
 								{% endfor %}
 							</ul>
+							{% endif %}
 						</li>
 
 					{% endfor %}

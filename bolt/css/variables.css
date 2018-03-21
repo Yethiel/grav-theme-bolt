@@ -1,12 +1,18 @@
 :root {
   --font-color: rgb(50, 50, 50);
-  /*Colors for background, main-bg-color is used for website content*/
+  --font-color-bright: rgb(200, 200, 200);
+  /* Colors for background, main-bg-color is used for website content */
   --main-bg-color: #EEEEEF;
+  --main-bg-color-darker: #C6C6C6;
   --dark-bg-color: #312F2F;
-  /*Colors for the links on dark backgrounds, red by default*/
+  /* Colors for the links on dark backgrounds, red by default */
   --link-darkbg: #FFC200;
   --link-darkbg-h: #ffdf67;
-  /*Colors for the links on bright backgrounds, yellow by default*/
+  /* Colors for the links on bright backgrounds, yellow by default */
   --link-lightbg: #C85426;
   --link-lightbg-h: #B67776;
+
+  /* Dimensions */
+  --sidebar-frac: 1fr;
+  --content-frac: 3fr;
 }
