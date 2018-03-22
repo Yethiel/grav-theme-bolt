@@ -24,6 +24,9 @@
           {% if page.header.sidebarlayout == 'default-showcase' %}
             {% do assets.addCss('theme://css/layouts/default_showcase.css') %}
           {% endif %}
+          {% if page.header.sidebarlayout == 'sidebar-top-showcase' %}
+            {% do assets.addCss('theme://css/layouts/sidebar-top-showcase.css') %}
+          {% endif %}
           {% if page.header.sidebarlayout == 'sidebar-left-showcase' %}
             {% do assets.addCss('theme://css/layouts/sidebar-left-showcase.css') %}
           {% endif %}

@@ -15,7 +15,7 @@ A simple theme for GRAV that utilizes css grids and variables.
 - A breakpoint at 800px that enables the mobile layout.
 
 
-**Demo**: [re-volt.io](https://re-volt.io)
+**Demo**: [test.re-volt.io](https://test.re-volt.io/)
 
 [![screenshot](bolt/thumbnail.jpg)](bolt/screenshot.jpg)
 
@@ -71,3 +71,10 @@ The `custom.css` file in `user/themes/bolt/css/` is enabled by default and can b
 The sidebar layouts can be customized in the `user/themes/bolt/css/layouts` folder.
 
 The favicon and the page background reside in `user/themes/bolt/images`.
+
+### Plugins
+
+Supported/required Grav plugins:
+- Breadcrumbs
+- TNT Search
+- Toc

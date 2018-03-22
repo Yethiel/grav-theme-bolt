@@ -31,6 +31,7 @@ form:
               options:
                 default: 'Sidebar Bottom'
                 sidebar-top: 'Sidebar Top'
+                sidebar-top-showcase: 'Sidebar Top with Showcase'
                 sidebar-left-showcase: 'Sidebar Left with Showcase'
                 sidebar-right-showcase: 'Sidebar Right with Showcase'
                 sidebar-left: 'Sidebar Left'
