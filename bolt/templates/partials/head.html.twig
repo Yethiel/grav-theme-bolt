@@ -13,44 +13,18 @@
 
     {% block stylesheets %}
         {% do assets.addCss('theme://css/style.css') %}
-        {% do assets.addCss('theme://css/custom.css') %}
-        {% if page.header.sidebarlayout %}
-          {% if page.header.sidebarlayout == 'default' %}
-            {% do assets.addCss('theme://css/layouts/default.css') %}
-          {% endif %}
-          {% if page.header.sidebarlayout == 'sidebar-top' %}
-            {% do assets.addCss('theme://css/layouts/sidebar-top.css') %}
-          {% endif %}
-          {% if page.header.sidebarlayout == 'default-showcase' %}
-            {% do assets.addCss('theme://css/layouts/default_showcase.css') %}
-          {% endif %}
-          {% if page.header.sidebarlayout == 'sidebar-top-showcase' %}
-            {% do assets.addCss('theme://css/layouts/sidebar-top-showcase.css') %}
-          {% endif %}
-          {% if page.header.sidebarlayout == 'sidebar-left-showcase' %}
-            {% do assets.addCss('theme://css/layouts/sidebar-left-showcase.css') %}
-          {% endif %}
-          {% if page.header.sidebarlayout == 'sidebar-right-showcase' %}
-            {% do assets.addCss('theme://css/layouts/sidebar-right-showcase.css') %}
-          {% endif %}
-          {% if page.header.sidebarlayout == 'sidebar-left' %}
-            {% do assets.addCss('theme://css/layouts/sidebar-left.css') %}
-          {% endif %}
-          {% if page.header.sidebarlayout == 'sidebar-right' %}
-            {% do assets.addCss('theme://css/layouts/sidebar-right.css') %}
-          {% endif %}
+
+        {% if theme_config.custom_css.enabled %}
+          {% do assets.addCss('theme://css/custom.css') %}
+        {% endif %}
+
+        {% if page.header.sidebarlayout == 'global' %}
+          {% do assets.addCss('theme://css/layouts/' ~ attribute(theme_config, page.template).sidebar_layout ~ '.css') %}
+
         {% else %}
-          {% do assets.addCss('theme://css/layouts/default.css') %}
+          {% do assets.addCss('theme://css/layouts/' ~ page.header.sidebarlayout ~ '.css') %}
         {% endif %}
         
 
     {% endblock %}
     {{ assets.css() }}
-
-
-
-{% block javascripts %}
-  {% do
-    assets.addJs('theme://dist/js/app.js', {group: 'bottom'}) %}
-{% endblock %}
-{{ assets.js() }}

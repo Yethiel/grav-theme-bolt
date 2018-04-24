@@ -1,13 +1,377 @@
 name: Bolt
-version: 0.0.2
+version: 0.1.0
 description: A Theme made for the re-volt.io website.
 icon: bolt
 author:
   name: Yethiel
   email: yethiel@mailbox.org
 homepage: https://re-volt.io
-demo: https://re-volt.io
+demo: https://github.com/Yethiel/grav-theme-bolt/
 keywords: bolt
 bugs: https://github.com/Yethiel/grav-theme-bolt/issues
 readme: https://github.com/Yethiel/grav-theme-bolt#bolt-grav-theme
 license: MIT
+
+form:
+  validation: loose
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+
+        general_options:
+          type: tab
+          title: Options
+          fields:
+
+            general_options_title:
+              type: section
+              title: Features
+              underline: true
+
+            logo.enabled:
+                type: toggle
+                label: Display site logo
+                highlight: 1
+                default: 1
+                options:
+                  1: Enabled
+                  0: Disabled
+                validate:
+                  type: bool
+
+            logo.file:
+                type: text
+                label: Logo in user/themes/bolt/images/
+                default: 'favicon.png'
+
+            background.file:
+                type: text
+                label: Background in user/themes/bolt/images/
+                default: 'background.jpg'
+
+            site_title.enabled:
+                type: toggle
+                label: Display site title
+                highlight: 1
+                default: 1
+                options:
+                  1: Enabled
+                  0: Disabled
+                validate:
+                  type: bool
+
+            custom_css.enabled:
+                type: toggle
+                label: Use custom.css (user/themes/bolt/css/custom.css needs to exist)
+                highlight: 1
+                default: 0
+                options:
+                  1: Enabled
+                  0: Disabled
+                validate:
+                  type: bool
+
+            menu_options_title:
+              type: section
+              title: Layout Options
+              underline: true
+
+            layout_explanation:
+              type: display
+              style: vertical
+              label: This lets you customize the default layouts for all templates.
+
+            default.title:
+              type: section
+              title: '"Default" Template'
+
+            default.toc.enabled:
+              type: toggle
+              default: 0
+              label: Table of Contents
+              highlight: 1
+              default: 1
+              options:
+                0: Disabled
+                1: Enabled
+              help: Show or hide the table of contents in the sidebar.
+            
+            default.toc.horizontal:
+              type: toggle
+              default: 0
+              label: Horizontal Table of Contents (for Sidebar Top/Bottom layout)
+              highlight: 1
+              default: 0
+              options:
+                0: Disabled
+                1: Enabled
+              help: Displays the table of contents horizontally rather than as a regular list.
+
+            default.sidebar_layout:
+              type: select
+              label: "Sidebar Layout"
+              default: sidebar-bottom
+              options:
+                sidebar-top: 'Sidebar Top'
+                sidebar-bottom: 'Sidebar Bottom'
+                sidebar-left: 'Sidebar Left'
+                sidebar-right: 'Sidebar Right'
+                sidebar-top-showcase: 'Sidebar Top with Showcase'
+                sidebar-bottom-showcase: 'Sidebar Bottom with Showcase'
+                sidebar-left-showcase: 'Sidebar Left with Showcase'
+                sidebar-right-showcase: 'Sidebar Right with Showcase'
+              help: Select the sidebar location.
+
+            chapter.title:
+              type: section
+              title: '"Chapter" Template'
+
+            chapter.toc.enabled:
+              type: toggle
+              default: 1
+              label: Table of Contents
+              highlight: 1
+              default: 1
+              options:
+                0: Disabled
+                1: Enabled
+              help: Show or hide the table of contents in the sidebar.
+            
+            chapter.toc.horizontal:
+              type: toggle
+              default: 0
+              label: Horizontal Table of Contents (for Sidebar Top/Bottom layout)
+              highlight: 1
+              default: 0
+              options:
+                0: Disabled
+                1: Enabled
+              help: Displays the table of contents horizontally rather than as a regular list.
+
+            chapter.sidebar_layout:
+              type: select
+              label: "Sidebar Layout"
+              default: sidebar-left
+              options:
+                sidebar-top: 'Sidebar Top'
+                sidebar-bottom: 'Sidebar Bottom'
+                sidebar-left: 'Sidebar Left'
+                sidebar-right: 'Sidebar Right'
+                sidebar-top-showcase: 'Sidebar Top with Showcase'
+                sidebar-bottom-showcase: 'Sidebar Bottom with Showcase'
+                sidebar-left-showcase: 'Sidebar Left with Showcase'
+                sidebar-right-showcase: 'Sidebar Right with Showcase'
+              help: Select the sidebar location.
+
+            docs.title:
+              type: section
+              title: '"Docs" Template'
+
+            docs.toc.enabled:
+              type: toggle
+              default: 1
+              label: Table of Contents
+              highlight: 1
+              default: 1
+              options:
+                0: Disabled
+                1: Enabled
+              help: Show or hide the table of contents in the sidebar.
+            
+            docs.toc.horizontal:
+              type: toggle
+              default: 0
+              label: Horizontal Table of Contents (for Sidebar Top/Bottom layout)
+              highlight: 1
+              defaul0: 0
+              options:
+                0: Disabled
+                1: Enabled
+              help: Displays the table of contents horizontally rather than as a regular list.
+
+            docs.sidebar_layout:
+              type: select
+              label: "Sidebar Layout"
+              default: sidebar-left
+              options:
+                sidebar-top: 'Sidebar Top'
+                sidebar-bottom: 'Sidebar Bottom'
+                sidebar-left: 'Sidebar Left'
+                sidebar-right: 'Sidebar Right'
+                sidebar-top-showcase: 'Sidebar Top with Showcase'
+                sidebar-bottom-showcase: 'Sidebar Bottom with Showcase'
+                sidebar-left-showcase: 'Sidebar Left with Showcase'
+                sidebar-right-showcase: 'Sidebar Right with Showcase'
+              help: Select the sidebar location.
+
+
+
+            blog.title:
+              type: section
+              title: '"Blog" Template'
+
+            blog.toc.enabled:
+              type: toggle
+              default: 1
+              label: Table of Contents
+              highlight: 1
+              default: 1
+              options:
+                0: Disabled
+                1: Enabled
+              help: Show or hide the table of contents in the sidebar.
+            
+            blog.toc.horizontal:
+              type: toggle
+              default: 0
+              label: Horizontal Table of Contents (for Sidebar Top/Bottom layout)
+              highlight: 1
+              defaul0: 0
+              options:
+                0: Disabled
+                1: Enabled
+              help: Displays the table of contents horizontally rather than as a regular list.
+
+            blog.sidebar_layout:
+              type: select
+              label: "Sidebar Layout"
+              default: sidebar-left
+              options:
+                sidebar-top: 'Sidebar Top'
+                sidebar-bottom: 'Sidebar Bottom'
+                sidebar-left: 'Sidebar Left'
+                sidebar-right: 'Sidebar Right'
+                sidebar-top-showcase: 'Sidebar Top with Showcase'
+                sidebar-bottom-showcase: 'Sidebar Bottom with Showcase'
+                sidebar-left-showcase: 'Sidebar Left with Showcase'
+                sidebar-right-showcase: 'Sidebar Right with Showcase'
+              help: Select the sidebar location.
+
+
+
+            post.title:
+              type: section
+              title: '"Post" Template'
+
+            post.toc.enabled:
+              type: toggle
+              default: 1
+              label: Table of Contents
+              highlight: 1
+              default: 0
+              options:
+                0: Disabled
+                1: Enabled
+              help: Show or hide the table of contents in the sidebar.
+            
+            post.toc.horizontal:
+              type: toggle
+              default: 0
+              label: Horizontal Table of Contents (for Sidebar Top/Bottom layout)
+              highlight: 1
+              defaul0: 0
+              options:
+                0: Disabled
+                1: Enabled
+              help: Displays the table of contents horizontally rather than as a regular list.
+
+            post.sidebar_layout:
+              type: select
+              label: "Sidebar Layout"
+              default: sidebar-left
+              options:
+                sidebar-top: 'Sidebar Top'
+                sidebar-bottom: 'Sidebar Bottom'
+                sidebar-left: 'Sidebar Left'
+                sidebar-right: 'Sidebar Right'
+                sidebar-top-showcase: 'Sidebar Top with Showcase'
+                sidebar-bottom-showcase: 'Sidebar Bottom with Showcase'
+                sidebar-left-showcase: 'Sidebar Left with Showcase'
+                sidebar-right-showcase: 'Sidebar Right with Showcase'
+              help: Select the sidebar location.
+
+
+            columns.title:
+              type: section
+              title: '"Columns" Template'
+
+            columns.toc.enabled:
+              type: toggle
+              default: 0
+              label: Table of Contents
+              highlight: 1
+              default: 1
+              options:
+                0: Disabled
+                1: Enabled
+              help: Show or hide the table of contents in the sidebar.
+            
+            columns.toc.horizontal:
+              type: toggle
+              default: 1
+              label: Horizontal Table of Contents (for Sidebar Top/Bottom layout)
+              highlight: 1
+              default: 0
+              options:
+                0: Disabled
+                1: Enabled
+              help: Displays the table of contents horizontally rather than as a regular list.
+
+            columns.sidebar_layout:
+              type: select
+              label: "Sidebar Layout"
+              default: sidebar-top
+              options:
+                sidebar-top: 'Sidebar Top'
+                sidebar-bottom: 'Sidebar Bottom'
+                sidebar-left: 'Sidebar Left'
+                sidebar-right: 'Sidebar Right'
+                sidebar-top-showcase: 'Sidebar Top with Showcase'
+                sidebar-bottom-showcase: 'Sidebar Bottom with Showcase'
+                sidebar-left-showcase: 'Sidebar Left with Showcase'
+                sidebar-right-showcase: 'Sidebar Right with Showcase'
+              help: Select the sidebar location.
+
+            gallery.title:
+              type: section
+              title: '"Gallery" Template'
+
+            gallery.toc.enabled:
+              type: toggle
+              default: 0
+              label: Table of Contents
+              highlight: 1
+              default: 1
+              options:
+                0: Disabled
+                1: Enabled
+              help: Show or hide the table of contents in the sidebar.
+            
+            gallery.toc.horizontal:
+              type: toggle
+              default: 1
+              label: Horizontal Table of Contents (for Sidebar Top/Bottom layout)
+              highlight: 1
+              default: 0
+              options:
+                0: Disabled
+                1: Enabled
+              help: Displays the table of contents horizontally rather than as a regular list.
+
+            gallery.sidebar_layout:
+              type: select
+              label: "Sidebar Layout"
+              default: sidebar-top
+              options:
+                sidebar-top: 'Sidebar Top'
+                sidebar-bottom: 'Sidebar Bottom'
+                sidebar-left: 'Sidebar Left'
+                sidebar-right: 'Sidebar Right'
+                sidebar-top-showcase: 'Sidebar Top with Showcase'
+                sidebar-bottom-showcase: 'Sidebar Bottom with Showcase'
+                sidebar-left-showcase: 'Sidebar Left with Showcase'
+                sidebar-right-showcase: 'Sidebar Right with Showcase'
+              help: Select the sidebar location.

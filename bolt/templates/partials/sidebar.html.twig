@@ -1,46 +1,47 @@
 <aside class="side bg-pattern-bright">
-	{% if not page.header.hidetoc %}
-		{% set parent = page.find('/'~page.url|split("/")[1]) %}
-		<ul {% if header.horizontaltoc %}class="horizontal-list"{% endif %}>
-			<li><a class="{% if parent.active %}active{% endif %}" href="{{parent.url}}">{{parent.menu}}</a>
-				<ul {% if header.horizontaltoc %}class="horizontal-list"{% endif %}>
-					{% for p in parent.children %}
-						<li><a class="{% if p.active %}active{% endif %}" href="{{p.url}}">{{ p.title }}</a>
-							{% if p.children|length > 0 %}
-							<ul {% if header.horizontaltoc %}class="horizontal-list"{% endif %}>
-								{% for p1 in p.children %}
-									<li><a class="{% if p1.active %}active{% endif %}" href="{{p1.url}}">{{ p1.title }}</a>
+  {% if (header.toc.enabled == 0 and attribute(theme_config, page.template).toc.enabled == 1 ) or header.toc.enabled == 1 %}
+  {% set topmost = pages.find('/' ~ page.url|replace({(base_url): ""})|trim(side='left')|split('/')[1]) %}
 
-										{% if p1.children|length > 0 and p.activeChild %}
-											<ul {% if header.horizontaltoc %}class="horizontal-list"{% endif %}>
-												{% for p2 in p1.children %}
-													<li><a class="{% if p2.active %}active{% endif %}" href="{{p2.url}}">{{ p2.title }}</a>
+    {% set horizontal = (header.toc.horizontal == 0 and attribute(theme_config, page.template).toc.horizontal == 1 ) or header.toc.horizontal == 1 %}
+    <ul class="{% if horizontal %}horizontal-list{% endif %} table-of-contents">
+      <li><a class="{% if topmost.active %}active{% endif %}" href="{{topmost.url}}">{{topmost.menu}}</a>
+        <ul class="{% if horizontal %}horizontal-list{% endif %} table-of-contents">
+          {% for p in topmost.children %}
+            <li><a class="{% if p.active %}active{% endif %}" href="{{p.url}}">{{ p.title }}</a>
+              {% if p.children|length > 0 %}
+              <ul class="{% if horizontal %}horizontal-list{% endif %} table-of-contents">
+                {% for p1 in p.children %}
+                  <li><a class="{% if p1.active %}active{% endif %}" href="{{p1.url}}">{{ p1.title }}</a>
 
-													{% if p2.children|length > 0 %}
-														<ul {% if header.horizontaltoc %}class="horizontal-list"{% endif %}>
-															{% for p3 in p2.children %}
-																<li><a class="{% if p3.active %}active{% endif %}" href="{{p3.url}}">{{ p3.title }}</a></li>
-															{% endfor %}
-														</ul>
-													{% endif %}
-													</li>
-												{% endfor %}
-											</ul>
-										{% endif %}
-									</li>
-								{% endfor %}
-							</ul>
-							{% endif %}
-						</li>
+                    {% if p1.children|length > 0 and p.activeChild %}
+                      <ul class="{% if horizontal %}horizontal-list{% endif %} table-of-contents">
+                        {% for p2 in p1.children %}
+                          <li><a class="{% if p2.active %}active{% endif %}" href="{{p2.url}}">{{ p2.title }}</a>
 
-					{% endfor %}
-				</ul>
-			</li>
-		</ul>
-	{% endif %}
-	{% if page.header.sidebarpath %}
-		{{ page.find(page.header.sidebarpath).content }}
-	{% else %}
-		{{ page.find("/sidebar").content }}
-	{% endif %}
+                          {% if p2.children|length > 0 %}
+                            <ul class="{% if horizontal %}horizontal-list{% endif %} table-of-contents">
+                              {% for p3 in p2.children %}
+                                <li><a class="{% if p3.active %}active{% endif %}" href="{{p3.url}}">{{ p3.title }}</a></li>
+                              {% endfor %}
+                            </ul>
+                          {% endif %}
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+  {% endif %}
+  {% if header.sidebarpath %}
+    {{ page.find(header.sidebarpath).content }}
+  {% else %}
+    {{ page.find("/sidebar").content }}
+  {% endif %}
 </aside>

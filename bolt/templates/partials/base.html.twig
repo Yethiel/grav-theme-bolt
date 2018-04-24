@@ -6,7 +6,7 @@
       {% include 'partials/head.html.twig' %}
     {% endblock %}
   </head>
-  <body class="{{ page.header.body_classes }}">
+  <body class="{{ page.header.body_classes }}" style="background: url({{ url('theme://images/' ~ theme_config.background.file) }}) fixed center no-repeat; background-size: cover;">
 
     <div class="wrapper">
 

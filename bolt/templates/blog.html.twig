@@ -1,0 +1,30 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {% if page.header.showcase %}
+        {% set background_image = page.media.images|randomize|first %}
+        <div class="showcase" {% if background_image %}style="background-image: url({{ background_image.url }});"{% endif %}>
+        </div>
+    {% endif %}
+    <div class="content bg-bright">
+      <h2>{{ page.title }}</h2>
+      {{ page.content }}
+     
+      {% set collection = page.collection() %}
+
+      {# Render the list of blog posts (automatically filtered when using pagination) #}
+      {% for article in collection %}
+        <div class="card">
+          <h3><a href="{{article.url}}">{{article.title}}</a></h3>
+          <p class="date">{{article.date|nicetime}}</p>
+          {{article.summary}}
+          <a href="{{article.url}}">Continue reading...</a>
+        </div>
+      {% endfor %}
+
+      {# Render the pagination list #}
+      {% if config.plugins.pagination.enabled and collection.params.pagination %}
+          {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+      {% endif %}
+    </div>
+{% endblock %}

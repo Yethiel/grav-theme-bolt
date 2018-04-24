@@ -27,15 +27,17 @@ form:
             header.sidebarlayout:
               type: select
               label: Sidebar Layout
-              default: default
+              default: global
               options:
-                default: 'Sidebar Bottom'
+                global: 'Use theme setting'
                 sidebar-top: 'Sidebar Top'
-                sidebar-top-showcase: 'Sidebar Top with Showcase'
-                sidebar-left-showcase: 'Sidebar Left with Showcase'
-                sidebar-right-showcase: 'Sidebar Right with Showcase'
+                sidebar-bottom: 'Sidebar Bottom'
                 sidebar-left: 'Sidebar Left'
                 sidebar-right: 'Sidebar Right'
+                sidebar-top-showcase: 'Sidebar Top with Showcase'
+                sidebar-bottom-showcase: 'Sidebar Bottom with Showcase'
+                sidebar-left-showcase: 'Sidebar Left with Showcase'
+                sidebar-right-showcase: 'Sidebar Right with Showcase'
               help: Select the sidebar location.
             
             header.sidebarpath:
@@ -43,44 +45,29 @@ form:
               label: Sidebar Content
               default: "/sidebar"
               help: Displays the content of a page in the sidebar.
-            
-            header.showcase:
-              type: toggle
-              default: false
-              label: Showcase
-              highlight: 1
-              default: 1
-              options:
-                1: Enabled
-                0: Disabled
-              validate:
-                type: bool
-              help: Adds a bar with a randomly selected image from the page's folder.
 
-            header.hidetoc:
+            header.toc.enabled:
               type: toggle
               default: false
               label: Table of Contents
-              highlight: 0
-              default: 0
+              highlight: 1
+              default: 2
               options:
-                0: Show
-                1: Hide
-              validate:
-                type: bool
-              help: Hide the table of contents in the sidebar.
+                0: Use theme setting
+                1: Enabled
+                2: Disabled
+              help: Show or hide the table of contents in the sidebar.
 
-            header.horizontaltoc:
+            header.toc.horizontal:
               type: toggle
               default: false
               label: Horizontal Table of Contents (for Sidebar Top/Bottom layout)
               highlight: 1
               default: 0
               options:
+                0: Use theme setting
                 1: Enabled
-                0: Disabled
-              validate:
-                type: bool
+                2: Disabled
               help: Displays the table of contents horizontally rather than as a regular list.
 
           import@:

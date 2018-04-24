@@ -1,7 +1,9 @@
+
 <header class="main-head bg-gradient-dark">
-  <a href="/">
-    <img src="{{ url('theme://images/favicon.png') }}" class="site-logo"><span class="site-title"> {{site.title}} </span>
+  <a href="{{ home_url }}">
+    {% if theme_config.logo.enabled %}<img src="{{ url('theme://images/' ~ theme_config.logo.file) }}" class="site-logo">{% endif %}{% if theme_config.site_title.enabled %}<span class="site-title"> {{site.title}} </span>{% endif %}
   </a>
+
 </header>
 
   <nav class="main-nav">

@@ -5,7 +5,6 @@
 @supports (display: grid) {
   .main-head {
     grid-area: header;
-    /*display: grid;*/
   }
   .content {
     grid-area: content;
